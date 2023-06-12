@@ -6,7 +6,8 @@
 //
 
 import UIKit
+import SnapKit
 
-class MainView: UIView {
-
+class MainProfileView: UIView {
+    
 }
