@@ -13,6 +13,7 @@
 		ACE7C5532A3746BE00C35BD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE7C5512A3746BE00C35BD1 /* Main.storyboard */; };
 		ACE7C5552A3746BE00C35BD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE7C5542A3746BE00C35BD1 /* Assets.xcassets */; };
 		ACE7C5582A3746BE00C35BD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE7C5562A3746BE00C35BD1 /* LaunchScreen.storyboard */; };
+		ACE7C5612A374AF400C35BD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACE7C5602A374AF400C35BD1 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE7C5612A374AF400C35BD1 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = AirPlan;
+			packageProductDependencies = (
+				ACE7C5602A374AF400C35BD1 /* SnapKit */,
+			);
 			productName = AirPlan;
 			productReference = ACE7C5482A3746BE00C35BD1 /* AirPlan.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = ACE7C53F2A3746BE00C35BD1;
+			packageReferences = (
+				ACE7C55F2A374AF400C35BD1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = ACE7C5492A3746BE00C35BD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ACE7C55F2A374AF400C35BD1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ACE7C5602A374AF400C35BD1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACE7C55F2A374AF400C35BD1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ACE7C5402A3746BE00C35BD1 /* Project object */;
 }
