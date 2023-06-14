@@ -17,6 +17,7 @@
 		ACE7C5632A374EA500C35BD1 /* MainProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7C5622A374EA500C35BD1 /* MainProfileView.swift */; };
 		ACE7C5652A37515000C35BD1 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7C5642A37515000C35BD1 /* MainInfoView.swift */; };
 		ACE7C5672A3751A700C35BD1 /* MainTDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7C5662A3751A700C35BD1 /* MainTDView.swift */; };
+		ACE7C5692A39FD5800C35BD1 /* UIEssentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7C5682A39FD5800C35BD1 /* UIEssentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		ACE7C5622A374EA500C35BD1 /* MainProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileView.swift; sourceTree = "<group>"; };
 		ACE7C5642A37515000C35BD1 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		ACE7C5662A3751A700C35BD1 /* MainTDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTDView.swift; sourceTree = "<group>"; };
+		ACE7C5682A39FD5800C35BD1 /* UIEssentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEssentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				ACE7C5622A374EA500C35BD1 /* MainProfileView.swift */,
 				ACE7C5642A37515000C35BD1 /* MainInfoView.swift */,
 				ACE7C5662A3751A700C35BD1 /* MainTDView.swift */,
+				ACE7C5682A39FD5800C35BD1 /* UIEssentials.swift */,
 				ACE7C5512A3746BE00C35BD1 /* Main.storyboard */,
 				ACE7C5542A3746BE00C35BD1 /* Assets.xcassets */,
 				ACE7C5562A3746BE00C35BD1 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 				ACE7C5632A374EA500C35BD1 /* MainProfileView.swift in Sources */,
 				ACE7C54C2A3746BE00C35BD1 /* AppDelegate.swift in Sources */,
 				ACE7C5652A37515000C35BD1 /* MainInfoView.swift in Sources */,
+				ACE7C5692A39FD5800C35BD1 /* UIEssentials.swift in Sources */,
 				ACE7C54E2A3746BE00C35BD1 /* SceneDelegate.swift in Sources */,
 				ACE7C5672A3751A700C35BD1 /* MainTDView.swift in Sources */,
 			);
