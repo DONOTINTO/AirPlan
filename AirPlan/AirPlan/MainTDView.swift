@@ -8,6 +8,6 @@
 import UIKit
 import SnapKit
 
-class MainTDView: UIView {
+class MainTDView: UIView, UIEssentials {
 
 }

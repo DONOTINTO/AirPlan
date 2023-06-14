@@ -8,6 +8,16 @@
 import UIKit
 import SnapKit
 
-class MainInfoView: UIView {
+class MainInfoView: UIView, UIEssentials {
+    
+    
+    func initialSetup() {
+        
+    }
+    
+    func makeUI() {
+        
+    }
+    
 
 }

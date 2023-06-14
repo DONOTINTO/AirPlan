@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MainProfileView: UIView {
+class MainProfileView: UIView, UIEssentials {
     let profileImage: UIImageView = UIImageView()
     let userIDLabel: UILabel = UILabel()
     let locationInfoLabel: UILabel = UILabel()
