@@ -9,7 +9,7 @@ import UIKit
 
 protocol UIEssentials {
     /// 초기값 설정 및 상태 설정
-    func initSettup()
+    func initialSetup()
     /// UI 제약조건 설정
     func makeUI()
 }
