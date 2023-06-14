@@ -9,5 +9,9 @@ import UIKit
 import SnapKit
 
 class MainTDView: UIView, UIEssentials {
-
+    func initialSetup() {
+    }
+    
+    func makeUI() {
+    }
 }
