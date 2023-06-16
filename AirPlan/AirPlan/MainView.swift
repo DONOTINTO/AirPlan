@@ -22,6 +22,12 @@ class MainView: UIView, UIEssentials {
             $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
             $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
         }
+        
+        infoView.snp.makeConstraints {
+            $0.top.equalTo(profileView.snp.bottom).offset(20)
+            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
+            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
+        }
     }
     
     
@@ -48,6 +54,8 @@ extension MainView {
             [profileImage, userIDLabel, locationInfoLabel].forEach { self.addSubview($0) }
             
             profileImage.backgroundColor = .brown
+            profileImage.layer.cornerRadius = 50
+            profileImage.layer.masksToBounds = true
             userIDLabel.text = "테스트"
             locationInfoLabel.text = "00구 \n 00시, 대한민국"
             locationInfoLabel.textAlignment = .center
@@ -76,6 +84,11 @@ extension MainView {
     }
     
     class InfoView: UIView, UIEssentials {
+        let weatherImage = UIImageView()
+        let airConditionImage = UIImageView()
+        let weatherLabel = UILabel()
+        let aqiLabel = UILabel()
+        
         override init(frame: CGRect) {
             super.init(frame: frame)
             initialSetup()
@@ -87,9 +100,27 @@ extension MainView {
         }
 
         func initialSetup() {
+            [weatherImage, airConditionImage, weatherLabel, aqiLabel].forEach { self.addSubview($0) }
+            self.backgroundColor = .blue
+            weatherImage.backgroundColor = .black
+            airConditionImage.backgroundColor = .black
+            weatherLabel.text = "현재 기온"
+            aqiLabel.text = "현재 AQI"
         }
         
         func makeUI() {
+            weatherImage.snp.makeConstraints {
+                $0.width.height.equalTo(120)
+                $0.top.equalTo(self.snp.top).offset(10)
+                $0.leading.equalTo(self.snp.leading).offset(30)
+            }
+            
+            airConditionImage.snp.makeConstraints {
+                $0.width.height.equalTo(120)
+                $0.top.equalTo(self.snp.top).offset(10)
+                $0.trailing.equalTo(self.snp.trailing).offset(-30)
+                
+            }
         }
     }
     
