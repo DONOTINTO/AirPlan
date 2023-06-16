@@ -13,11 +13,15 @@ class MainView: UIView, UIEssentials {
     let tdView = TDView()
     
     func initialSetup() {
-        
+        [profileView, infoView, tdView].forEach { self.addSubview($0) }
     }
     
     func makeUI() {
-        
+        profileView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
+            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
+        }
     }
     
     
@@ -28,6 +32,16 @@ extension MainView {
         let profileImage: UIImageView = UIImageView()
         let userIDLabel: UILabel = UILabel()
         let locationInfoLabel: UILabel = UILabel()
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            initialSetup()
+            makeUI()
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
         
         func initialSetup() {
             self.backgroundColor = .darkGray
@@ -62,6 +76,16 @@ extension MainView {
     }
     
     class InfoView: UIView, UIEssentials {
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            initialSetup()
+            makeUI()
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
         func initialSetup() {
         }
         
@@ -70,6 +94,16 @@ extension MainView {
     }
     
     class TDView: UIView, UIEssentials {
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            initialSetup()
+            makeUI()
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
         func initialSetup() {
         }
         
