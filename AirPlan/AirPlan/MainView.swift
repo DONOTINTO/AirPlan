@@ -10,10 +10,11 @@ import UIKit
 class MainView: UIView, UIEssentials {
     let profileView = ProfileView()
     let infoView = InfoView()
-    let tdView = TDView()
+    let todayTDView = TodayTDView()
+    let tomorrowTDView = TomorrowTDView()
     
     func initialSetup() {
-        [profileView, infoView, tdView].forEach { self.addSubview($0) }
+        [profileView, infoView, todayTDView, tomorrowTDView].forEach { self.addSubview($0) }
     }
     
     func makeUI() {
@@ -28,9 +29,14 @@ class MainView: UIView, UIEssentials {
             $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
             $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
         }
+        
+        todayTDView.snp.makeConstraints {
+            $0.top.equalTo(infoView.snp.bottom).offset(20)
+            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
+            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-10)
+        }
     }
-    
-    
 }
 
 extension MainView {
@@ -101,7 +107,7 @@ extension MainView {
 
         func initialSetup() {
             [weatherImage, airConditionImage, weatherLabel, aqiLabel].forEach { self.addSubview($0) }
-            self.backgroundColor = .blue
+            self.layer.borderWidth = 3
             weatherImage.backgroundColor = .black
             airConditionImage.backgroundColor = .black
             weatherLabel.text = "현재 기온"
@@ -119,12 +125,29 @@ extension MainView {
                 $0.width.height.equalTo(120)
                 $0.top.equalTo(self.snp.top).offset(10)
                 $0.trailing.equalTo(self.snp.trailing).offset(-30)
-                
             }
         }
     }
     
-    class TDView: UIView, UIEssentials {
+    class TodayTDView: UIView, UIEssentials {
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            initialSetup()
+            makeUI()
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+
+        func initialSetup() {
+        }
+        
+        func makeUI() {
+        }
+    }
+    
+    class TomorrowTDView: UIView, UIEssentials {
         override init(frame: CGRect) {
             super.init(frame: frame)
             initialSetup()
