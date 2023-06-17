@@ -141,7 +141,7 @@ extension MainView {
         }
     }
     
-    class TodayTDView: UIView, UIEssentials {
+    class TodayTDView: UIView, UIEssentials, UITableViewDelegate, UITableViewDataSource {
         let todayLabel = UILabel()
         let todoTableView = UITableView()
         
@@ -157,12 +157,34 @@ extension MainView {
 
         func initialSetup() {
             [todayLabel, todoTableView].forEach { self.addSubview($0) }
+            todoTableView.delegate = self
+            todoTableView.dataSource = self
+            
             todayLabel.textAlignment = .center
             todayLabel.numberOfLines = 2
             todayLabel.text = "오늘 \n 0월 00일 (토)"
         }
         
         func makeUI() {
+            todayLabel.snp.makeConstraints {
+                $0.top.equalTo(self.snp.top).offset(10)
+                $0.leading.equalTo(self.snp.leading).offset(10)
+            }
+            
+            todoTableView.snp.makeConstraints {
+                $0.top.equalTo(todayLabel.snp.bottom).offset(10)
+                $0.leading.equalTo(self.snp.leading).offset(10)
+                $0.trailing.equalTo(self.snp.trailing).offset(-10)
+                $0.bottom.equalTo(self.snp.bottom).offset(-10)
+            }
+        }
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 2
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            return UITableViewCell()
         }
     }
     
