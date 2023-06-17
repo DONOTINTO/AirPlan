@@ -126,10 +126,25 @@ extension MainView {
                 $0.top.equalTo(self.snp.top).offset(10)
                 $0.trailing.equalTo(self.snp.trailing).offset(-30)
             }
+            
+            weatherLabel.snp.makeConstraints {
+                $0.centerX.equalTo(weatherImage.snp.centerX)
+                $0.top.equalTo(weatherImage.snp.bottom).offset(10)
+                $0.bottom.equalTo(self.snp.bottom).offset(-10)
+            }
+            
+            aqiLabel.snp.makeConstraints {
+                $0.centerX.equalTo(airConditionImage.snp.centerX)
+                $0.top.equalTo(airConditionImage.snp.bottom).offset(10)
+                $0.bottom.equalTo(self.snp.bottom).offset(-10)
+            }
         }
     }
     
     class TodayTDView: UIView, UIEssentials {
+        let todayLabel = UILabel()
+        let todoTableView = UITableView()
+        
         override init(frame: CGRect) {
             super.init(frame: frame)
             initialSetup()
@@ -141,6 +156,10 @@ extension MainView {
         }
 
         func initialSetup() {
+            [todayLabel, todoTableView].forEach { self.addSubview($0) }
+            todayLabel.textAlignment = .center
+            todayLabel.numberOfLines = 2
+            todayLabel.text = "오늘 \n 0월 00일 (토)"
         }
         
         func makeUI() {
