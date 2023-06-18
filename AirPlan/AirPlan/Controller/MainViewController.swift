@@ -9,6 +9,13 @@ import UIKit
 import SnapKit
 
 class MainViewController: UIViewController {
+    let mainView = MainView()
+    
+    override func loadView() {
+        self.view = mainView
+        mainView.initialSetup()
+        mainView.makeUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
