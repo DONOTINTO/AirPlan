@@ -17,7 +17,6 @@ class MainView: UIView, UIEssentials {
     func initialSetup() {
         self.addSubview(mainStackView)
         [profileView, infoView, todayTDView, tomorrowTDView].forEach { mainStackView.addArrangedSubview($0) }
-        
         mainStackView.axis = .vertical
         mainStackView.spacing = 10
         mainStackView.alignment = .fill
@@ -69,10 +68,9 @@ extension MainView {
         }
         
         func initialSetup() {
-            self.backgroundColor = .darkGray
             [profileImage, userIDLabel, locationInfoLabel].forEach { self.addSubview($0) }
-            
-            profileImage.backgroundColor = .brown
+            self.layer.borderWidth = 3
+            profileImage.backgroundColor = .black
             profileImage.layer.cornerRadius = 50
             profileImage.layer.masksToBounds = true
             userIDLabel.text = "테스트"
@@ -85,7 +83,7 @@ extension MainView {
             profileImage.snp.makeConstraints {
                 $0.width.height.equalTo(100)
                 $0.top.equalTo(self.snp.top).offset(10)
-                $0.leading.equalTo(self.snp.leading).offset(10)
+                $0.leading.equalTo(self.snp.leading).offset(30)
             }
             
             userIDLabel.snp.makeConstraints {
@@ -170,14 +168,12 @@ extension MainView {
 
         func initialSetup() {
             [todayLabel, todoTableView].forEach { self.addSubview($0) }
+            self.layer.borderWidth = 3
             todoTableView.delegate = self
             todoTableView.dataSource = self
-            
             todayLabel.textAlignment = .center
             todayLabel.numberOfLines = 2
             todayLabel.text = "오늘 \n 0월 00일 (토)"
-            
-            self.layer.borderWidth = 3
         }
         
         func makeUI() {
@@ -219,9 +215,9 @@ extension MainView {
 
         func initialSetup() {
             [tomorrowLabel, todoTableView].forEach { self.addSubview($0) }
+            self.layer.borderWidth = 3
             todoTableView.delegate = self
             todoTableView.dataSource = self
-            
             tomorrowLabel.textAlignment = .center
             tomorrowLabel.numberOfLines = 2
             tomorrowLabel.text = "내일 \n 0월 00일 (일)"
