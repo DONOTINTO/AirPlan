@@ -12,35 +12,42 @@ class MainView: UIView, UIEssentials {
     let infoView = InfoView()
     let todayTDView = TodayTDView()
     let tomorrowTDView = TomorrowTDView()
+    let mainStackView = UIStackView()
     
     func initialSetup() {
-        [profileView, infoView, todayTDView, tomorrowTDView].forEach { self.addSubview($0) }
+        self.addSubview(mainStackView)
+        [profileView, infoView, todayTDView, tomorrowTDView].forEach { mainStackView.addArrangedSubview($0) }
+        
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 10
+        mainStackView.alignment = .fill
+        mainStackView.distribution = .fill
     }
     
     func makeUI() {
+        mainStackView.snp.makeConstraints {
+            $0.edges.equalTo(self.safeAreaLayoutGuide.snp.edges).inset(10)
+        }
+        
         profileView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
-            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
+            $0.top.equalTo(mainStackView.snp.top)
         }
         
         infoView.snp.makeConstraints {
-            $0.top.equalTo(profileView.snp.bottom).offset(20)
-            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
-            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
+            $0.leading.lessThanOrEqualTo(mainStackView.snp.leading).offset(10)
+            $0.trailing.greaterThanOrEqualTo(mainStackView.snp.trailing).offset(-10)
         }
         
         todayTDView.snp.makeConstraints {
-            $0.top.equalTo(infoView.snp.bottom).offset(20)
-            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
-            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
+            $0.height.equalTo(tomorrowTDView)
+            $0.leading.lessThanOrEqualTo(mainStackView.snp.leading).offset(10)
+            $0.trailing.greaterThanOrEqualTo(mainStackView.snp.trailing).offset(-10)
         }
         
         tomorrowTDView.snp.makeConstraints {
-            $0.top.equalTo(todayTDView.snp.bottom).offset(20)
-            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(10)
-            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-10)
-            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-10)
+            $0.leading.lessThanOrEqualTo(mainStackView.snp.leading).offset(10)
+            $0.trailing.greaterThanOrEqualTo(mainStackView.snp.trailing).offset(-10)
+            $0.bottom.equalTo(mainStackView.snp.bottom)
         }
     }
 }
