@@ -127,15 +127,15 @@ extension MainView {
         
         func makeUI() {
             weatherImage.snp.makeConstraints {
-                $0.width.height.equalTo(120)
+                $0.width.height.equalTo(80)
                 $0.top.equalTo(self.snp.top).offset(10)
-                $0.leading.equalTo(self.snp.leading).offset(30)
+                $0.centerX.equalTo(self.snp.centerX).offset(-70)
             }
             
             airConditionImage.snp.makeConstraints {
-                $0.width.height.equalTo(120)
+                $0.width.height.equalTo(80)
                 $0.top.equalTo(self.snp.top).offset(10)
-                $0.trailing.equalTo(self.snp.trailing).offset(-30)
+                $0.centerX.equalTo(self.snp.centerX).offset(70)
             }
             
             weatherLabel.snp.makeConstraints {
@@ -174,6 +174,7 @@ extension MainView {
             todayLabel.textAlignment = .center
             todayLabel.numberOfLines = 2
             todayLabel.text = "오늘 \n 0월 00일 (토)"
+            todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
         }
         
         func makeUI() {
@@ -195,7 +196,11 @@ extension MainView {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCell.identifier, for: indexPath) as? TodoListTableViewCell else { return UITableViewCell() }
+            cell.initialSetup()
+            cell.makeUI()
+            
+            return cell
         }
     }
     
@@ -221,6 +226,7 @@ extension MainView {
             tomorrowLabel.textAlignment = .center
             tomorrowLabel.numberOfLines = 2
             tomorrowLabel.text = "내일 \n 0월 00일 (일)"
+            todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
         }
         
         func makeUI() {
@@ -242,7 +248,11 @@ extension MainView {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCell.identifier, for: indexPath) as? TodoListTableViewCell else { return UITableViewCell() }
+            cell.initialSetup()
+            cell.makeUI()
+            
+            return cell
         }
     }
 }
