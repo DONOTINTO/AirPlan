@@ -74,9 +74,11 @@ extension MainView {
             profileImage.layer.cornerRadius = 50
             profileImage.layer.masksToBounds = true
             userIDLabel.text = "테스트"
+            userIDLabel.textColor = .black
             locationInfoLabel.text = "00구 \n 00시, 대한민국"
+            locationInfoLabel.textColor = .black
             locationInfoLabel.textAlignment = .center
-            locationInfoLabel.numberOfLines = 2
+            locationInfoLabel.numberOfLines = 3
         }
         
         func makeUI() {
@@ -119,10 +121,11 @@ extension MainView {
         func initialSetup() {
             [weatherImage, airConditionImage, weatherLabel, aqiLabel].forEach { self.addSubview($0) }
             self.layer.borderWidth = 3
-            weatherImage.backgroundColor = .black
             airConditionImage.backgroundColor = .black
             weatherLabel.text = "현재 기온"
+            weatherLabel.textColor = .black
             aqiLabel.text = "현재 AQI"
+            aqiLabel.textColor = .black
         }
         
         func makeUI() {
@@ -174,6 +177,7 @@ extension MainView {
             todayLabel.textAlignment = .center
             todayLabel.numberOfLines = 2
             todayLabel.text = "오늘 \n 0월 00일 (토)"
+            todayLabel.textColor = .black
             todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
         }
         
@@ -226,6 +230,7 @@ extension MainView {
             tomorrowLabel.textAlignment = .center
             tomorrowLabel.numberOfLines = 2
             tomorrowLabel.text = "내일 \n 0월 00일 (일)"
+            tomorrowLabel.textColor = .black
             todoTableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
         }
         

@@ -17,11 +17,15 @@ class TodoListTableViewCell: UITableViewCell, UIEssentials {
     
     func initialSetup() {
         [weatherImage, categoryLabel, contentsLabel, checkButton].forEach { self.addSubview($0) }
+        self.backgroundColor = .white
+        self.tintColor = .white
         weatherImage.backgroundColor = .black
         categoryLabel.textAlignment = .left
         categoryLabel.text = "카테고리명"
+        categoryLabel.textColor = .black
         contentsLabel.textAlignment = .left
         contentsLabel.text = "내용"
+        contentsLabel.textColor = .black
         checkButton.backgroundColor = .blue
     }
     
