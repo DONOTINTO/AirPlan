@@ -174,6 +174,7 @@ extension MainView {
             self.layer.borderWidth = 3
             todoTableView.delegate = self
             todoTableView.dataSource = self
+            todoTableView.backgroundColor = .none
             todayLabel.textAlignment = .center
             todayLabel.numberOfLines = 2
             todayLabel.text = "오늘 \n 0월 00일 (토)"
@@ -227,6 +228,7 @@ extension MainView {
             self.layer.borderWidth = 3
             todoTableView.delegate = self
             todoTableView.dataSource = self
+            todoTableView.backgroundColor = .none
             tomorrowLabel.textAlignment = .center
             tomorrowLabel.numberOfLines = 2
             tomorrowLabel.text = "내일 \n 0월 00일 (일)"
