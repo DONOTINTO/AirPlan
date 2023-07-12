@@ -42,6 +42,12 @@ class LoginView: UIView, UIEssentials {
     }
     
     func makeUI() {
+        testLabel.snp.makeConstraints{
+            $0.leading.equalTo(self.snp.leading).offset(10)
+            $0.trailing.equalTo(self.snp.trailing).offset(-10)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(10)
+        }
+        
         idTextField.snp.makeConstraints {
             $0.height.equalTo(30)
             $0.leading.equalTo(self.snp.leading).offset(10)
@@ -76,16 +82,10 @@ class LoginView: UIView, UIEssentials {
             $0.top.equalTo(signUpButton.snp.bottom).offset(10)
         }
         
-        testLabel.snp.makeConstraints{
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
-            $0.top.equalTo(signInGoogleButton.snp.bottom).offset(10)
-        }
-        
         testLogOutButton.snp.makeConstraints {
             $0.leading.equalTo(self.snp.leading).offset(10)
             $0.trailing.equalTo(self.snp.trailing).offset(-10)
-            $0.top.equalTo(testLabel.snp.bottom).offset(10)
+            $0.top.equalTo(signInGoogleButton.snp.bottom).offset(10)
         }
     }
 }
