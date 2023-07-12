@@ -11,6 +11,11 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 
+enum LoginStatus {
+    case login
+    case logout
+}
+
 class LoginView: UIView, UIEssentials {
     let idTextField = UITextField()
     let passwordTextField = UITextField()
@@ -19,6 +24,21 @@ class LoginView: UIView, UIEssentials {
     var signInGoogleButton = GIDSignInButton()
     let testLabel = UILabel()
     let testLogOutButton = UIButton()
+    var loginStatus = LoginStatus.logout
+    
+    func refresh() {
+        switch loginStatus {
+        case .login:
+            testLogOutButton.isHidden = false
+        case .logout:
+            testLogOutButton.isHidden = true
+        }
+    }
+    
+    func makeLogout(status: LoginStatus) {
+        loginStatus = status
+        self.refresh()
+    }
     
     func initialSetup() {
         [idTextField, passwordTextField, loginButton, signUpButton, signInGoogleButton, testLabel, testLogOutButton].forEach { self.addSubview($0)}

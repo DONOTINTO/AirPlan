@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
         self.view = loginView
         loginView.initialSetup()
         loginView.makeUI()
+        loginView.refresh()
     }
     
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class LoginViewController: UIViewController {
                 return
             }
             print("로그인 성공")
+            self?.loginView.makeLogout(status: .login)
         }
     }
     
@@ -59,11 +61,9 @@ class LoginViewController: UIViewController {
     @objc func signInGoogleButtonClicked() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
-        // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
         
-        // Start the sign in flow!
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
             guard error == nil else {
                 print("error")
@@ -76,11 +76,10 @@ class LoginViewController: UIViewController {
             }
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
-            
             Auth.auth().signIn(with: credential) { result, error in
                 print("성공")
                 self.loginView.testLabel.text = result?.user.email
-                // At this point, our user is signed in
+                self.loginView.makeLogout(status: .login)
             }
         }
     }
@@ -90,6 +89,7 @@ class LoginViewController: UIViewController {
         do {
             try firebaseAuth.signOut()
             self.loginView.testLabel.text = "로그아웃!"
+            self.loginView.makeLogout(status: .logout)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
