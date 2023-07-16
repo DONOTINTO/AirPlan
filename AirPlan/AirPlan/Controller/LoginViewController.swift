@@ -16,13 +16,14 @@ class LoginViewController: UIViewController {
     
     override func loadView() {
         self.view = loginView
-        loginView.initialSetup()
-        loginView.makeUI()
-        loginView.refresh()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginView.initialSetup()
+        loginView.makeUI()
+        loginView.refresh()
+        
         loginView.loginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
         loginView.signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
         loginView.signInGoogleButton.addTarget(self, action: #selector(signInGoogleButtonClicked), for: .touchUpInside)
