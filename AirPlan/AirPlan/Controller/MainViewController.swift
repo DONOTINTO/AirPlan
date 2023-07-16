@@ -19,12 +19,12 @@ class MainViewController: UIViewController {
     
     override func loadView() {
         self.view = mainView
-        mainView.initialSetup()
-        mainView.makeUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.initialSetup()
+        mainView.makeUI()
         fetchCoordinate()
     }
     
@@ -83,6 +83,7 @@ class MainViewController: UIViewController {
         let findLocation = CLLocation(latitude: lat, longitude: lon)
         let geocoder = CLGeocoder()
         let locale = Locale(identifier: "Ko-kr")
+        
         geocoder.reverseGeocodeLocation(findLocation, preferredLocale: locale) { placemark, error in
             guard let placemark = placemark else { return }
             guard error == nil else { print(error?.localizedDescription ?? "unknown error")
