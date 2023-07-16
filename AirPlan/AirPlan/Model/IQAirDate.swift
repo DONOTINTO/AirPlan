@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 날짜와 관련된 기능 모음
 class IQAirDate {
     static var shared = IQAirDate()
     
