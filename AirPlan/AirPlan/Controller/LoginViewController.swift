@@ -29,10 +29,11 @@ class LoginViewController: UIViewController {
         loginView.testLogOutButton.addTarget(self, action: #selector(testLogOutButtonClicked), for: .touchUpInside)
     }
     
-    //일반 이메일 - 로그인 버튼 클릭 시
+    // 일반 이메일 - 로그인 버튼 클릭 시
     @objc func loginButtonClicked() {
         let email = self.loginView.idTextField.text!
         let password = self.loginView.passwordTextField.text!
+        
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
             guard error == nil else {
@@ -43,7 +44,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //일반 이메일 - 회원가입 버튼 클릭 시
+    // 일반 이메일 - 회원가입 버튼 클릭 시
     @objc func signUpButtonClicked() {
         let email = self.loginView.idTextField.text!
         let password = self.loginView.passwordTextField.text!
@@ -57,7 +58,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //구글 - 구글 로그인/회원가입 버튼 클릭 시
+    // 구글 - 구글 로그인/회원가입 버튼 클릭 시
     @objc func signInGoogleButtonClicked() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
@@ -82,7 +83,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //로그아웃
+    // 로그아웃
     @objc func testLogOutButtonClicked() {
         let firebaseAuth = Auth.auth()
         do {
