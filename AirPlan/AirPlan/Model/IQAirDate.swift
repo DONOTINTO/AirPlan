@@ -16,14 +16,26 @@ class IQAirDate {
     
     private init() { }
     
-    private func setTimeFormatter() {
+    private func setTodayTimeFormatter() {
         IQAirDate.shared.dateFomatter.timeStyle = .none
         IQAirDate.shared.dateFomatter.locale = Locale(identifier: "ko-KR")
         IQAirDate.shared.dateFomatter.dateFormat = "오늘\n MMM d일 (E)"
     }
     
+    private func getTomorrowDate() -> Date {
+        guard let date = Calendar.current.date(byAdding: .day, value: 1, to: IQAirDate.shared.date) else { return Date() }
+        return date
+    }
+    
     func fetchDate() -> String {
-        setTimeFormatter()
+        setTodayTimeFormatter()
+        return IQAirDate.shared.dateFomatter.string(from: date)
+    }
+    
+    func fetchTomorrowDate() -> String {
+        self.setTodayTimeFormatter()
+        IQAirDate.shared.dateFomatter.dateFormat = "내일\n MMM d일 (E)"
+        let date = self.getTomorrowDate()
         return IQAirDate.shared.dateFomatter.string(from: date)
     }
 }
