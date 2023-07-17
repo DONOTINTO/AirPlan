@@ -26,6 +26,8 @@ class MainViewController: UIViewController {
         mainView.initialSetup()
         mainView.makeUI()
         fetchCoordinate()
+        
+        mainView.todayTDView.todayLabel.text = IQAirDate.shared.fetchDate()
     }
     
     func fetch() {

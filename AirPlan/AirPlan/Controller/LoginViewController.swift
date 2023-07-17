@@ -16,13 +16,17 @@ class LoginViewController: UIViewController {
     
     override func loadView() {
         self.view = loginView
-        loginView.initialSetup()
-        loginView.makeUI()
-        loginView.refresh()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginView.initialSetup()
+        loginView.makeUI()
+        loginView.refresh()
+        self.addButtonsAction()
+    }
+    
+    func addButtonsAction() {
         loginView.loginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
         loginView.signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
         loginView.signInGoogleButton.addTarget(self, action: #selector(signInGoogleButtonClicked), for: .touchUpInside)
@@ -71,9 +75,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            guard let user = result?.user, let idToken = user.idToken?.tokenString else {
-                return
-            }
+            guard let user = result?.user, let idToken = user.idToken?.tokenString else { return }
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
             Auth.auth().signIn(with: credential) { result, error in

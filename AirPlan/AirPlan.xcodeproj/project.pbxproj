@@ -29,6 +29,7 @@
 		ACE7C5582A3746BE00C35BD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE7C5562A3746BE00C35BD1 /* LaunchScreen.storyboard */; };
 		ACE7C5612A374AF400C35BD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACE7C5602A374AF400C35BD1 /* SnapKit */; };
 		ACE7C5692A39FD5800C35BD1 /* UIEssentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7C5682A39FD5800C35BD1 /* UIEssentials.swift */; };
+		ACF7C7E12A63F01700DA879F /* IQAirDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7C7E02A63F01700DA879F /* IQAirDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		ACE7C5572A3746BE00C35BD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACE7C5592A3746BE00C35BD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACE7C5682A39FD5800C35BD1 /* UIEssentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEssentials.swift; sourceTree = "<group>"; };
+		ACF7C7E02A63F01700DA879F /* IQAirDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQAirDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1ED0D32A3EF2A40029F81D /* IQAir.swift */,
+				ACF7C7E02A63F01700DA879F /* IQAirDate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACBBD5512A5C1938000C9312 /* LoginViewController.swift in Sources */,
+				ACF7C7E12A63F01700DA879F /* IQAirDate.swift in Sources */,
 				ACE7C5502A3746BE00C35BD1 /* MainViewController.swift in Sources */,
 				AC1ED0CC2A3CABD00029F81D /* MainView.swift in Sources */,
 				AC1ED0D42A3EF2A40029F81D /* IQAir.swift in Sources */,

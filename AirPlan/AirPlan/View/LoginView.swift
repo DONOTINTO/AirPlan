@@ -41,7 +41,7 @@ class LoginView: UIView, UIEssentials {
     }
     
     func initialSetup() {
-        [idTextField, passwordTextField, loginButton, signUpButton, signInGoogleButton, testLabel, testLogOutButton].forEach { self.addSubview($0)}
+        [idTextField, passwordTextField, loginButton, signUpButton, signInGoogleButton, testLabel, testLogOutButton].forEach { self.addSubview($0) }
         idTextField.backgroundColor = .lightGray
         passwordTextField.backgroundColor = .lightGray
         loginButton.backgroundColor = .systemBlue
@@ -62,7 +62,7 @@ class LoginView: UIView, UIEssentials {
     }
     
     func makeUI() {
-        testLabel.snp.makeConstraints{
+        testLabel.snp.makeConstraints {
             $0.leading.equalTo(self.snp.leading).offset(10)
             $0.trailing.equalTo(self.snp.trailing).offset(-10)
             $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(10)
