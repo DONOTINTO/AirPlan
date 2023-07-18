@@ -19,6 +19,7 @@
 		ACB278B12A5C224300393E24 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278B02A5C224300393E24 /* GoogleSignIn */; };
 		ACB278B32A5C224300393E24 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278B22A5C224300393E24 /* GoogleSignInSwift */; };
 		ACB278B52A5C23FC00393E24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB278B42A5C23FC00393E24 /* GoogleService-Info.plist */; };
+		ACB7AC9A2A66D05D0021AA79 /* AirPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7AC992A66D05D0021AA79 /* AirPlanTests.swift */; };
 		ACBBD54F2A5C18D1000C9312 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBD54E2A5C18D1000C9312 /* LoginView.swift */; };
 		ACBBD5512A5C1938000C9312 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBD5502A5C1938000C9312 /* LoginViewController.swift */; };
 		ACE7C54C2A3746BE00C35BD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7C54B2A3746BE00C35BD1 /* AppDelegate.swift */; };
@@ -32,11 +33,23 @@
 		ACF7C7E12A63F01700DA879F /* IQAirDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF7C7E02A63F01700DA879F /* IQAirDate.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		ACB7AC9B2A66D05D0021AA79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACE7C5402A3746BE00C35BD1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACE7C5472A3746BE00C35BD1;
+			remoteInfo = AirPlan;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AC1ED0CB2A3CABD00029F81D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AC1ED0CD2A3EE0C80029F81D /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		AC1ED0D32A3EF2A40029F81D /* IQAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQAir.swift; sourceTree = "<group>"; };
 		ACB278B42A5C23FC00393E24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACB7AC972A66D05D0021AA79 /* AirPlanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB7AC992A66D05D0021AA79 /* AirPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlanTests.swift; sourceTree = "<group>"; };
 		ACBBD54E2A5C18D1000C9312 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ACBBD5502A5C1938000C9312 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ACE7C5482A3746BE00C35BD1 /* AirPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		ACB7AC942A66D05D0021AA79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACE7C5452A3746BE00C35BD1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,10 +127,19 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		ACB7AC982A66D05D0021AA79 /* AirPlanTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACB7AC992A66D05D0021AA79 /* AirPlanTests.swift */,
+			);
+			path = AirPlanTests;
+			sourceTree = "<group>";
+		};
 		ACE7C53F2A3746BE00C35BD1 = {
 			isa = PBXGroup;
 			children = (
 				ACE7C54A2A3746BE00C35BD1 /* AirPlan */,
+				ACB7AC982A66D05D0021AA79 /* AirPlanTests */,
 				ACE7C5492A3746BE00C35BD1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE7C5482A3746BE00C35BD1 /* AirPlan.app */,
+				ACB7AC972A66D05D0021AA79 /* AirPlanTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +174,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		ACB7AC962A66D05D0021AA79 /* AirPlanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACB7ACA02A66D05D0021AA79 /* Build configuration list for PBXNativeTarget "AirPlanTests" */;
+			buildPhases = (
+				ACB7AC932A66D05D0021AA79 /* Sources */,
+				ACB7AC942A66D05D0021AA79 /* Frameworks */,
+				ACB7AC952A66D05D0021AA79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACB7AC9C2A66D05D0021AA79 /* PBXTargetDependency */,
+			);
+			name = AirPlanTests;
+			productName = AirPlanTests;
+			productReference = ACB7AC972A66D05D0021AA79 /* AirPlanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ACE7C5472A3746BE00C35BD1 /* AirPlan */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACE7C55C2A3746BE00C35BD1 /* Build configuration list for PBXNativeTarget "AirPlan" */;
@@ -182,6 +230,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					ACB7AC962A66D05D0021AA79 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = ACE7C5472A3746BE00C35BD1;
+					};
 					ACE7C5472A3746BE00C35BD1 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -206,11 +258,19 @@
 			projectRoot = "";
 			targets = (
 				ACE7C5472A3746BE00C35BD1 /* AirPlan */,
+				ACB7AC962A66D05D0021AA79 /* AirPlanTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		ACB7AC952A66D05D0021AA79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACE7C5462A3746BE00C35BD1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +285,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		ACB7AC932A66D05D0021AA79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACB7AC9A2A66D05D0021AA79 /* AirPlanTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACE7C5442A3746BE00C35BD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +311,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACB7AC9C2A66D05D0021AA79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACE7C5472A3746BE00C35BD1 /* AirPlan */;
+			targetProxy = ACB7AC9B2A66D05D0021AA79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ACE7C5512A3746BE00C35BD1 /* Main.storyboard */ = {
@@ -264,6 +340,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		ACB7AC9D2A66D05D0021AA79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92Y6UC7Q5M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = donotinto.AirPlanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirPlan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirPlan";
+			};
+			name = Debug;
+		};
+		ACB7AC9E2A66D05D0021AA79 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92Y6UC7Q5M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = donotinto.AirPlanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirPlan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirPlan";
+			};
+			name = Test;
+		};
+		ACB7AC9F2A66D05D0021AA79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92Y6UC7Q5M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = donotinto.AirPlanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirPlan.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirPlan";
+			};
+			name = Release;
+		};
 		ACBBD5522A5C1BEB000C9312 /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -534,6 +676,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		ACB7ACA02A66D05D0021AA79 /* Build configuration list for PBXNativeTarget "AirPlanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACB7AC9D2A66D05D0021AA79 /* Debug */,
+				ACB7AC9E2A66D05D0021AA79 /* Test */,
+				ACB7AC9F2A66D05D0021AA79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ACE7C5432A3746BE00C35BD1 /* Build configuration list for PBXProject "AirPlan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
