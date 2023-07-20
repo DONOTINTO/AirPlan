@@ -10,6 +10,7 @@
 		AC1ED0CC2A3CABD00029F81D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1ED0CB2A3CABD00029F81D /* MainView.swift */; };
 		AC1ED0CE2A3EE0C80029F81D /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1ED0CD2A3EE0C80029F81D /* TodoListTableViewCell.swift */; };
 		AC1ED0D42A3EF2A40029F81D /* IQAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1ED0D32A3EF2A40029F81D /* IQAir.swift */; };
+		AC9D243B2A695D3000BF19A3 /* IQAirError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D243A2A695D3000BF19A3 /* IQAirError.swift */; };
 		ACB278A42A5C21B800393E24 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278A32A5C21B800393E24 /* FirebaseAnalytics */; };
 		ACB278A62A5C21B800393E24 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278A52A5C21B800393E24 /* FirebaseAuth */; };
 		ACB278A82A5C21B800393E24 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278A72A5C21B800393E24 /* FirebaseCrashlytics */; };
@@ -47,6 +48,7 @@
 		AC1ED0CB2A3CABD00029F81D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AC1ED0CD2A3EE0C80029F81D /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		AC1ED0D32A3EF2A40029F81D /* IQAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQAir.swift; sourceTree = "<group>"; };
+		AC9D243A2A695D3000BF19A3 /* IQAirError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQAirError.swift; sourceTree = "<group>"; };
 		ACB278B42A5C23FC00393E24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACB7AC972A66D05D0021AA79 /* AirPlanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB7AC992A66D05D0021AA79 /* AirPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlanTests.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				AC1ED0D32A3EF2A40029F81D /* IQAir.swift */,
 				ACF7C7E02A63F01700DA879F /* IQAirDate.swift */,
+				AC9D243A2A695D3000BF19A3 /* IQAirError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				ACF7C7E12A63F01700DA879F /* IQAirDate.swift in Sources */,
 				ACE7C5502A3746BE00C35BD1 /* MainViewController.swift in Sources */,
 				AC1ED0CC2A3CABD00029F81D /* MainView.swift in Sources */,
+				AC9D243B2A695D3000BF19A3 /* IQAirError.swift in Sources */,
 				AC1ED0D42A3EF2A40029F81D /* IQAir.swift in Sources */,
 				ACE7C54C2A3746BE00C35BD1 /* AppDelegate.swift in Sources */,
 				ACE7C5692A39FD5800C35BD1 /* UIEssentials.swift in Sources */,
