@@ -17,13 +17,15 @@ enum LoginStatus {
 }
 
 class LoginView: UIView, UIEssentials {
+    let loginStackView = UIStackView()
     let idTextField = UITextField()
     let passwordTextField = UITextField()
     let loginButton = UIButton()
     let signUpButton = UIButton()
     var signInGoogleButton = GIDSignInButton()
-    let testLabel = UILabel()
     let testLogOutButton = UIButton()
+    let logoImage = UIImageView()
+    let infoText = UILabel()
     var loginStatus = LoginStatus.logout
     
     func refresh() {
@@ -41,70 +43,89 @@ class LoginView: UIView, UIEssentials {
     }
     
     func initialSetup() {
-        [idTextField, passwordTextField, loginButton, signUpButton, signInGoogleButton, testLabel, testLogOutButton].forEach { self.addSubview($0) }
-        idTextField.backgroundColor = .lightGray
-        passwordTextField.backgroundColor = .lightGray
-        loginButton.backgroundColor = .systemBlue
-        signUpButton.backgroundColor = .systemGreen
-        testLogOutButton.backgroundColor = .systemGreen
-        loginButton.titleLabel?.textColor = .black
-        signUpButton.titleLabel?.textColor = .black
-        testLogOutButton.titleLabel?.textColor = .black
-        testLabel.text = "123"
-        testLabel.textColor = .black
-        testLabel.numberOfLines = 2
+        [loginStackView, infoText, signUpButton, signInGoogleButton, testLogOutButton, logoImage].forEach { self.addSubview($0) }
+        [idTextField, passwordTextField, loginButton].forEach { loginStackView.addArrangedSubview($0)}
         
-        idTextField.placeholder = "아이디를 입력해주세요."
-        passwordTextField.placeholder = "비밀번호를 입력해주세요"
+        self.backgroundColor = .white
+        logoImage.image = UIImage(named: "Logo-Image")
+        
+        loginStackView.axis = .vertical
+        loginStackView.spacing = 0
+        loginStackView.alignment = .fill
+        loginStackView.distribution = .fillEqually
+        
+        idTextField.placeholder = "아이디"
+        idTextField.backgroundColor = .white
+        idTextField.addLeftPadding()
+        idTextField.layer.cornerRadius = 5
+        idTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        idTextField.layer.borderWidth = 1
+        idTextField.layer.borderColor = CGColor(red: 216/255, green: 219/255, blue: 227/255, alpha: 1)
+        
+        passwordTextField.placeholder = "비밀번호"
+        passwordTextField.backgroundColor = .white
+        passwordTextField.addLeftPadding()
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = CGColor(red: 216/255, green: 219/255, blue: 227/255, alpha: 1)
+        
         loginButton.setTitle("로그인", for: .normal)
+        loginButton.backgroundColor = UIColor(cgColor: CGColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1))
+        loginButton.titleLabel?.textColor = .black
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+        infoText.text = "아직 회원이 아니신가요?"
+        infoText.textColor = .black
+        infoText.font = UIFont.systemFont(ofSize: 13)
+        
         signUpButton.setTitle("회원가입", for: .normal)
+        signUpButton.backgroundColor = .white
+        signUpButton.layer.cornerRadius = 5
+        signUpButton.layer.borderColor = CGColor(red: 216/255, green: 219/255, blue: 227/255, alpha: 1)
+        signUpButton.layer.borderWidth = 1
+        signUpButton.setTitleColor(UIColor.black, for: .normal)
+        
         testLogOutButton.setTitle("로그아웃", for: .normal)
+        testLogOutButton.backgroundColor = .systemGreen
+        testLogOutButton.titleLabel?.textColor = .black
     }
     
     func makeUI() {
-        testLabel.snp.makeConstraints {
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
-            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(10)
+        
+        logoImage.snp.makeConstraints {
+            $0.centerX.equalTo(self.snp.centerX)
+            $0.top.equalTo(self.snp.top).offset(150)
         }
         
-        idTextField.snp.makeConstraints {
-            $0.height.equalTo(30)
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
-            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(200)
+        loginStackView.snp.makeConstraints {
+            $0.height.equalTo(150)
+            $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(40)
+            $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-40)
+            $0.top.equalTo(logoImage.snp.bottom).offset(50)
         }
         
-        passwordTextField.snp.makeConstraints {
-            $0.height.equalTo(30)
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
-            $0.top.equalTo(idTextField.snp.bottom).offset(10)
-        }
-        
-        loginButton.snp.makeConstraints {
-            $0.height.equalTo(30)
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(10)
+        infoText.snp.makeConstraints {
+            $0.top.equalTo(loginStackView.snp.bottom).offset(50)
+            $0.centerX.equalTo(self.snp.centerX)
         }
         
         signUpButton.snp.makeConstraints {
-            $0.height.equalTo(30)
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
-            $0.top.equalTo(loginButton.snp.bottom).offset(10)
+            $0.height.equalTo(50)
+            $0.leading.equalTo(self.snp.leading).offset(40)
+            $0.trailing.equalTo(self.snp.trailing).offset(-40)
+            $0.top.equalTo(infoText.snp.bottom).offset(10)
         }
         
         signInGoogleButton.snp.makeConstraints {
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
+            $0.height.equalTo(50)
+            $0.leading.equalTo(self.snp.leading).offset(40)
+            $0.trailing.equalTo(self.snp.trailing).offset(-40)
             $0.top.equalTo(signUpButton.snp.bottom).offset(10)
         }
         
         testLogOutButton.snp.makeConstraints {
-            $0.leading.equalTo(self.snp.leading).offset(10)
-            $0.trailing.equalTo(self.snp.trailing).offset(-10)
+            $0.leading.equalTo(self.snp.leading).offset(40)
+            $0.trailing.equalTo(self.snp.trailing).offset(-40)
             $0.top.equalTo(signInGoogleButton.snp.bottom).offset(10)
         }
     }
