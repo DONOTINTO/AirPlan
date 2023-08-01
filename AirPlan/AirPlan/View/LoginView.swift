@@ -88,10 +88,12 @@ class LoginView: UIView, UIEssentials {
         testLogOutButton.setTitle("로그아웃", for: .normal)
         testLogOutButton.backgroundColor = .systemGreen
         testLogOutButton.titleLabel?.textColor = .black
+        
+        signInGoogleButton.colorScheme = .dark
+        signInGoogleButton.style = .wide
     }
     
     func makeUI() {
-        
         logoImage.snp.makeConstraints {
             $0.centerX.equalTo(self.snp.centerX)
             $0.top.equalTo(self.snp.top).offset(150)
@@ -117,7 +119,6 @@ class LoginView: UIView, UIEssentials {
         }
         
         signInGoogleButton.snp.makeConstraints {
-            $0.height.equalTo(50)
             $0.leading.equalTo(self.snp.leading).offset(40)
             $0.trailing.equalTo(self.snp.trailing).offset(-40)
             $0.top.equalTo(signUpButton.snp.bottom).offset(10)
