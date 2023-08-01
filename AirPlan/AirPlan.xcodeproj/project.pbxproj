@@ -12,6 +12,7 @@
 		AC1ED0D42A3EF2A40029F81D /* IQAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1ED0D32A3EF2A40029F81D /* IQAir.swift */; };
 		AC9D243E2A74F3C500BF19A3 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D243D2A74F3C500BF19A3 /* UITextField+.swift */; };
 		ACAB718A2A7943AD0075A367 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAB71892A7943AD0075A367 /* SignUpView.swift */; };
+		ACAB718C2A7944310075A367 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAB718B2A7944310075A367 /* SignUpViewController.swift */; };
 		ACB278A42A5C21B800393E24 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278A32A5C21B800393E24 /* FirebaseAnalytics */; };
 		ACB278A62A5C21B800393E24 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278A52A5C21B800393E24 /* FirebaseAuth */; };
 		ACB278A82A5C21B800393E24 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = ACB278A72A5C21B800393E24 /* FirebaseCrashlytics */; };
@@ -51,6 +52,7 @@
 		AC1ED0D32A3EF2A40029F81D /* IQAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQAir.swift; sourceTree = "<group>"; };
 		AC9D243D2A74F3C500BF19A3 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		ACAB71892A7943AD0075A367 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		ACAB718B2A7944310075A367 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		ACB278B42A5C23FC00393E24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACB7AC972A66D05D0021AA79 /* AirPlanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB7AC992A66D05D0021AA79 /* AirPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlanTests.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				ACE7C54F2A3746BE00C35BD1 /* MainViewController.swift */,
 				ACBBD5502A5C1938000C9312 /* LoginViewController.swift */,
 				AC1ED0CD2A3EE0C80029F81D /* TodoListTableViewCell.swift */,
+				ACAB718B2A7944310075A367 /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				ACE7C54E2A3746BE00C35BD1 /* SceneDelegate.swift in Sources */,
 				ACBBD54F2A5C18D1000C9312 /* LoginView.swift in Sources */,
 				AC1ED0CE2A3EE0C80029F81D /* TodoListTableViewCell.swift in Sources */,
+				ACAB718C2A7944310075A367 /* SignUpViewController.swift in Sources */,
 				AC9D243E2A74F3C500BF19A3 /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
