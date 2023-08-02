@@ -50,16 +50,19 @@ class LoginViewController: UIViewController {
     
     // 일반 이메일 - 회원가입 버튼 클릭 시
     @objc func signUpButtonClicked() {
-        let email = self.loginView.idTextField.text!
-        let password = self.loginView.passwordTextField.text!
+        let signUpVC = SignUpViewController()
+        self.navigationController?.pushViewController(signUpVC, animated: true)
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            guard error == nil else {
-                print(error!.localizedDescription)
-                return
-            }
-            print("SignUp Success")
-        }
+        // let email = self.loginView.idTextField.text!
+        // let password = self.loginView.passwordTextField.text!
+        //
+        // Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        //     guard error == nil else {
+        //         print(error!.localizedDescription)
+        //         return
+        //     }
+        //     print("SignUp Success")
+        // }
     }
     
     // 구글 - 구글 로그인/회원가입 버튼 클릭 시

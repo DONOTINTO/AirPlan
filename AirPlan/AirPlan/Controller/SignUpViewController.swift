@@ -16,6 +16,10 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logoImageView = UIImageView(image: UIImage(named: "Logo-Image"))
+        logoImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = logoImageView
+        
         signUpView.initialSetup()
         signUpView.makeUI()
     }
