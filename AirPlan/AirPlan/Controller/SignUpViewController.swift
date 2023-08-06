@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     let signUpView = SignUpView()
@@ -22,5 +23,20 @@ class SignUpViewController: UIViewController {
         
         signUpView.initialSetup()
         signUpView.makeUI()
+        
+        signUpView.signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func signUpButtonClicked() {
+        let email = self.signUpView.idTextField.text!
+        let password = self.signUpView.passwordTextField.text!
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            print("SignUp Success")
+        }
     }
 }
