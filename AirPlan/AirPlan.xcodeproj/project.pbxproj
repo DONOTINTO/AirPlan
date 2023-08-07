@@ -10,6 +10,8 @@
 		AC1ED0CC2A3CABD00029F81D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1ED0CB2A3CABD00029F81D /* MainView.swift */; };
 		AC1ED0CE2A3EE0C80029F81D /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1ED0CD2A3EE0C80029F81D /* TodoListTableViewCell.swift */; };
 		AC1ED0D42A3EF2A40029F81D /* IQAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1ED0D32A3EF2A40029F81D /* IQAir.swift */; };
+		AC83C13A2A7F7B4E00785CB2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AC83C1392A7F7B4E00785CB2 /* FirebaseFirestore */; };
+		AC83C13C2A7FB3EE00785CB2 /* FireStoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC83C13B2A7FB3EE00785CB2 /* FireStoreData.swift */; };
 		AC9D243E2A74F3C500BF19A3 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D243D2A74F3C500BF19A3 /* UITextField+.swift */; };
 		ACAB718A2A7943AD0075A367 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAB71892A7943AD0075A367 /* SignUpView.swift */; };
 		ACAB718C2A7944310075A367 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAB718B2A7944310075A367 /* SignUpViewController.swift */; };
@@ -50,6 +52,7 @@
 		AC1ED0CB2A3CABD00029F81D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AC1ED0CD2A3EE0C80029F81D /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		AC1ED0D32A3EF2A40029F81D /* IQAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQAir.swift; sourceTree = "<group>"; };
+		AC83C13B2A7FB3EE00785CB2 /* FireStoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreData.swift; sourceTree = "<group>"; };
 		AC9D243D2A74F3C500BF19A3 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		ACAB71892A7943AD0075A367 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		ACAB718B2A7944310075A367 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 				ACB278B32A5C224300393E24 /* GoogleSignInSwift in Frameworks */,
 				ACB278A42A5C21B800393E24 /* FirebaseAnalytics in Frameworks */,
 				ACB278B12A5C224300393E24 /* GoogleSignIn in Frameworks */,
+				AC83C13A2A7F7B4E00785CB2 /* FirebaseFirestore in Frameworks */,
 				ACB278A82A5C21B800393E24 /* FirebaseCrashlytics in Frameworks */,
 				ACB278AA2A5C21B800393E24 /* FirebaseMessaging in Frameworks */,
 				ACB278AC2A5C21B800393E24 /* FirebaseRemoteConfig in Frameworks */,
@@ -123,6 +127,7 @@
 			children = (
 				AC1ED0D32A3EF2A40029F81D /* IQAir.swift */,
 				ACF7C7E02A63F01700DA879F /* IQAirDate.swift */,
+				AC83C13B2A7FB3EE00785CB2 /* FireStoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +138,13 @@
 				ACE7C5682A39FD5800C35BD1 /* UIEssentials.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AC83C1382A7F7B4E00785CB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AC9D243C2A74F3A600BF19A3 /* Extension */ = {
@@ -157,6 +169,7 @@
 				ACE7C54A2A3746BE00C35BD1 /* AirPlan */,
 				ACB7AC982A66D05D0021AA79 /* AirPlanTests */,
 				ACE7C5492A3746BE00C35BD1 /* Products */,
+				AC83C1382A7F7B4E00785CB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,6 +245,7 @@
 				ACB278AD2A5C21B800393E24 /* FirebaseStorage */,
 				ACB278B02A5C224300393E24 /* GoogleSignIn */,
 				ACB278B22A5C224300393E24 /* GoogleSignInSwift */,
+				AC83C1392A7F7B4E00785CB2 /* FirebaseFirestore */,
 			);
 			productName = AirPlan;
 			productReference = ACE7C5482A3746BE00C35BD1 /* AirPlan.app */;
@@ -317,6 +331,7 @@
 				ACBBD5512A5C1938000C9312 /* LoginViewController.swift in Sources */,
 				ACF7C7E12A63F01700DA879F /* IQAirDate.swift in Sources */,
 				ACE7C5502A3746BE00C35BD1 /* MainViewController.swift in Sources */,
+				AC83C13C2A7FB3EE00785CB2 /* FireStoreData.swift in Sources */,
 				AC1ED0CC2A3CABD00029F81D /* MainView.swift in Sources */,
 				ACAB718A2A7943AD0075A367 /* SignUpView.swift in Sources */,
 				AC1ED0D42A3EF2A40029F81D /* IQAir.swift in Sources */,
@@ -757,6 +772,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AC83C1392A7F7B4E00785CB2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACB278A22A5C21B800393E24 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		ACB278A32A5C21B800393E24 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ACB278A22A5C21B800393E24 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
