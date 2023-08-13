@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     let signUpView = SignUpView()
+    var checkList = (email : false, nickName : false)
     
     override func loadView() {
         self.view = signUpView
@@ -34,23 +35,30 @@ class SignUpViewController: UIViewController {
         let password = self.signUpView.passwordTextField.text!
         let nickname = self.signUpView.nicknameTextField.text!
         
-        // FireStoreData.shared.UserData(id: email, password: password, nickname: nickname)
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
             }
+            guard let UID = authResult?.user.uid else { return }
+            let db = FireStoreData.shared.dataBase()
+            db.collection("USER").document(UID).setData(["email" : email, "password" : password, "nickname" : nickname])
+            
             print("SignUp Success")
         }
     }
     
     @objc func DuplicateCheckButtonClicked() {
         let email = self.signUpView.idTextField.text!
-        let userData = FireStoreData.shared.UserData()
+        let userDB = FireStoreData.shared.UserData()
         
-        let query = userData.whereField("ID", isEqualTo: email)
-        query.getDocuments { qs, error in
-            print(qs?.documents)
+        let query = userDB.whereField("email", isEqualTo: email)
+        query.getDocuments { document, error in
+            if document!.documents.isEmpty {
+                self.checkList.email = true
+            } else {
+                self.checkList.email = false
+            }
         }
     }
 }

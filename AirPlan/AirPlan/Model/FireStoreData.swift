@@ -15,6 +15,10 @@ class FireStoreData {
     
     func UserData() -> CollectionReference {
         let db = Firestore.firestore()
-        return db.collection("Users")
+        return db.collection("USER")
+    }
+    
+    func dataBase() -> Firestore {
+        return Firestore.firestore()
     }
 }
