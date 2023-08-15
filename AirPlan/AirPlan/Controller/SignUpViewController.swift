@@ -11,7 +11,6 @@ import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     let signUpView = SignUpView()
-    var checkList = (email : false, nickName : false)
     
     override func loadView() {
         self.view = signUpView
@@ -27,7 +26,8 @@ class SignUpViewController: UIViewController {
         signUpView.makeUI()
         
         signUpView.signUpButton.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
-        signUpView.idDuplicateCheckButton.addTarget(self, action: #selector(DuplicateCheckButtonClicked), for: .touchUpInside)
+        signUpView.idDuplicateCheckButton.addTarget(self, action: #selector(idDuplicateCheckButtonClicked), for: .touchUpInside)
+        signUpView.nicknameDuplicateCheckButton.addTarget(self, action: #selector(nicknameDuplicateCheckButtonClicked), for: .touchUpInside)
     }
     
     @objc func signUpButtonClicked() {
@@ -48,16 +48,30 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    @objc func DuplicateCheckButtonClicked() {
+    @objc func idDuplicateCheckButtonClicked() {
         let email = self.signUpView.idTextField.text!
         let userDB = FireStoreData.shared.UserData()
         
         let query = userDB.whereField("email", isEqualTo: email)
         query.getDocuments { document, error in
             if document!.documents.isEmpty {
-                self.checkList.email = true
+                //중복 체크 통과
             } else {
-                self.checkList.email = false
+                //중복 체크 미통과
+            }
+        }
+    }
+    
+    @objc func nicknameDuplicateCheckButtonClicked() {
+        let nickname = self.signUpView.nicknameTextField.text!
+        let userDB = FireStoreData.shared.UserData()
+        
+        let query = userDB.whereField("nickname", isEqualTo: nickname)
+        query.getDocuments { document, error in
+            if document!.documents.isEmpty {
+                //중복 체크 통과
+            } else {
+                //중복 체크 미통과
             }
         }
     }
