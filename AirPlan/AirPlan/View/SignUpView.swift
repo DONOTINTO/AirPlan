@@ -25,6 +25,11 @@ class SignUpView: UIView, UIEssentials {
             self.addSubview($0)
         }
         
+        idTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordCheckTextField.delegate = self
+        nicknameTextField.delegate = self
+        
         self.inputViewController?.navigationItem.titleView = logoImageView
         self.backgroundColor = .white
         logoImageView.image = UIImage(named: "Logo-Image")
@@ -106,7 +111,7 @@ class SignUpView: UIView, UIEssentials {
             $0.height.equalTo(50)
             $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(30)
             $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-30)
-            $0.top.equalTo(passwordTextField.safeAreaLayoutGuide.snp.bottom).offset(-1)
+            $0.top.equalTo(passwordTextField.safeAreaLayoutGuide.snp.bottom)
         }
         
         nicknameLabel.snp.makeConstraints {

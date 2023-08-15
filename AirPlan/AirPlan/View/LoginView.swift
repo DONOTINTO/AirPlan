@@ -24,8 +24,8 @@ class LoginView: UIView, UIEssentials {
     let signUpButton = UIButton()
     var signInGoogleButton = GIDSignInButton()
     let testLogOutButton = UIButton()
-    let logoImage = UIImageView()
-    let infoText = UILabel()
+    let logoImageView = UIImageView()
+    let infoLabel = UILabel()
     var loginStatus = LoginStatus.logout
     
     func refresh() {
@@ -43,11 +43,14 @@ class LoginView: UIView, UIEssentials {
     }
     
     func initialSetup() {
-        [loginStackView, infoText, signUpButton, signInGoogleButton, testLogOutButton, logoImage].forEach { self.addSubview($0) }
+        [loginStackView, infoLabel, signUpButton, signInGoogleButton, testLogOutButton, logoImageView].forEach { self.addSubview($0) }
         [idTextField, passwordTextField, loginButton].forEach { loginStackView.addArrangedSubview($0)}
         
+        idTextField.delegate = self
+        passwordTextField.delegate = self
+        
         self.backgroundColor = .white
-        logoImage.image = UIImage(named: "Logo-Image")
+        logoImageView.image = UIImage(named: "Logo-Image")
         
         loginStackView.axis = .vertical
         loginStackView.spacing = 0
@@ -74,9 +77,9 @@ class LoginView: UIView, UIEssentials {
         loginButton.layer.cornerRadius = 5
         loginButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
-        infoText.text = "아직 회원이 아니신가요?"
-        infoText.textColor = .black
-        infoText.font = UIFont.systemFont(ofSize: 13)
+        infoLabel.text = "아직 회원이 아니신가요?"
+        infoLabel.textColor = .black
+        infoLabel.font = UIFont.systemFont(ofSize: 13)
         
         signUpButton.setTitle("회원가입", for: .normal)
         signUpButton.backgroundColor = .white
@@ -94,7 +97,7 @@ class LoginView: UIView, UIEssentials {
     }
     
     func makeUI() {
-        logoImage.snp.makeConstraints {
+        logoImageView.snp.makeConstraints {
             $0.centerX.equalTo(self.snp.centerX)
             $0.top.equalTo(self.snp.top).offset(150)
         }
@@ -103,10 +106,10 @@ class LoginView: UIView, UIEssentials {
             $0.height.equalTo(150)
             $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(40)
             $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-40)
-            $0.top.equalTo(logoImage.snp.bottom).offset(50)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(50)
         }
         
-        infoText.snp.makeConstraints {
+        infoLabel.snp.makeConstraints {
             $0.top.equalTo(loginStackView.snp.bottom).offset(50)
             $0.centerX.equalTo(self.snp.centerX)
         }
@@ -115,7 +118,7 @@ class LoginView: UIView, UIEssentials {
             $0.height.equalTo(50)
             $0.leading.equalTo(self.snp.leading).offset(40)
             $0.trailing.equalTo(self.snp.trailing).offset(-40)
-            $0.top.equalTo(infoText.snp.bottom).offset(10)
+            $0.top.equalTo(infoLabel.snp.bottom).offset(10)
         }
         
         signInGoogleButton.snp.makeConstraints {
