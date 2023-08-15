@@ -46,9 +46,6 @@ class LoginView: UIView, UIEssentials {
         [loginStackView, infoLabel, signUpButton, signInGoogleButton, testLogOutButton, logoImageView].forEach { self.addSubview($0) }
         [idTextField, passwordTextField, loginButton].forEach { loginStackView.addArrangedSubview($0)}
         
-        idTextField.delegate = self
-        passwordTextField.delegate = self
-        
         self.backgroundColor = .white
         logoImageView.image = UIImage(named: "Logo-Image")
         

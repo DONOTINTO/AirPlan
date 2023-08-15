@@ -25,11 +25,6 @@ class SignUpView: UIView, UIEssentials {
             self.addSubview($0)
         }
         
-        idTextField.delegate = self
-        passwordTextField.delegate = self
-        passwordCheckTextField.delegate = self
-        nicknameTextField.delegate = self
-        
         self.inputViewController?.navigationItem.titleView = logoImageView
         self.backgroundColor = .white
         logoImageView.image = UIImage(named: "Logo-Image")

@@ -18,9 +18,15 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         let logoImageView = UIImageView(image: UIImage(named: "Logo-Image"))
         logoImageView.contentMode = .scaleAspectFit
         navigationItem.titleView = logoImageView
+        
+        signUpView.idTextField.delegate = self
+        signUpView.passwordTextField.delegate = self
+        signUpView.passwordCheckTextField.delegate = self
+        signUpView.nicknameTextField.delegate = self
         
         signUpView.initialSetup()
         signUpView.makeUI()

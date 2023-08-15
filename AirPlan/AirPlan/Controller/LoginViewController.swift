@@ -23,6 +23,11 @@ class LoginViewController: UIViewController {
         loginView.initialSetup()
         loginView.makeUI()
         loginView.refresh()
+        self.hideKeyboardWhenTappedAround()
+        
+        loginView.idTextField.delegate = self
+        loginView.passwordTextField.delegate = self
+        
         self.addButtonsAction()
     }
     
