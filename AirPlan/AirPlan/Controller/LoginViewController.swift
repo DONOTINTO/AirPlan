@@ -79,7 +79,6 @@ class LoginViewController: UIViewController {
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
             Auth.auth().signIn(with: credential) { result, error in
-                self.loginView.testLabel.text = result?.user.email
                 self.loginView.makeLogout(status: .login)
             }
         }
@@ -90,7 +89,6 @@ class LoginViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            self.loginView.testLabel.text = "로그아웃!"
             self.loginView.makeLogout(status: .logout)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
