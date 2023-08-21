@@ -81,11 +81,19 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        // if FireStoreData.shared.isDuplicate(field: "email", data: email, button: sender) {
-        //     print("생성된 이메일이 존재합니다")
-        // } else {
-        //     checkList.updateValue(true, forKey: DUPLICATEID)
-        // }
+        let userDB = FireStoreData.shared.UserData()
+        let query = userDB.whereField("email", isEqualTo: email)
+        query.getDocuments { document, error in
+            if document!.documents.isEmpty {
+                //중복 체크 통과
+                self.checkList.updateValue(true, forKey: DUPLICATEID)
+                self.signUpView.nicknameDuplicateCheckButton.backgroundColor = .lightGray
+            } else {
+                //중복 체크 미통과
+                self.signUpView.nicknameDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
+                print("생성된 이메일이 존재합니다")
+            }
+        }
     }
     
     @objc func nicknameDuplicateCheckButtonClicked(_ sender: UIButton) {
@@ -102,11 +110,19 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        // if FireStoreData.shared.isDuplicate(field: "nickname", data: nickname, button: sender) {
-        //     print("중복된 닉네임입니다")
-        // } else {
-        //     checkList.updateValue(true, forKey: DUPLICATENICKNAME)
-        // }
+        let userDB = FireStoreData.shared.UserData()
+        let query = userDB.whereField("nickname", isEqualTo: nickname)
+        query.getDocuments { document, error in
+            if document!.documents.isEmpty {
+                //중복 체크 통과
+                self.checkList.updateValue(true, forKey: DUPLICATENICKNAME)
+                self.signUpView.nicknameDuplicateCheckButton.backgroundColor = .lightGray
+            } else {
+                //중복 체크 미통과
+                self.signUpView.nicknameDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
+                print("중복된 닉네임입니다")
+            }
+        }
     }
     
     @objc func didIDTextFieldChange() {
