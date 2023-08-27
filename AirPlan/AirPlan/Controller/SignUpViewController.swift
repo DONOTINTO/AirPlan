@@ -61,9 +61,7 @@ class SignUpViewController: UIViewController {
         let email = self.signUpView.idTextField.text!
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
         
-        self.signUpView.errorMSG(msg: "")
-        
-        if email == "" {
+        if email.isEmpty {
             self.signUpView.errorMSG(msg: Constants.EMPTYEMAIL)
             return
         }
@@ -79,7 +77,7 @@ class SignUpViewController: UIViewController {
             if document!.documents.isEmpty {
                 //중복 체크 통과
                 self.signUpView.idDuplicateCheckButton.backgroundColor = .lightGray
-                self.signUpView.errorMSG(msg: "")
+                self.signUpView.errorMSG(msg: Constants.PASSEMAIL)
             } else {
                 //중복 체크 미통과
                 self.signUpView.idDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
@@ -92,9 +90,7 @@ class SignUpViewController: UIViewController {
         let nickname = self.signUpView.nicknameTextField.text!
         let nicknameRegex = "^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,8}$"
         
-        self.signUpView.errorMSG(msg: "")
-        
-        if nickname == "" {
+        if nickname.isEmpty {
             self.signUpView.errorMSG(msg: Constants.EMPTYNICKNAME)
             return
         }
@@ -110,7 +106,7 @@ class SignUpViewController: UIViewController {
             if document!.documents.isEmpty {
                 //중복 체크 통과
                 self.signUpView.nicknameDuplicateCheckButton.backgroundColor = .lightGray
-                self.signUpView.errorMSG(msg: "")
+                self.signUpView.errorMSG(msg: Constants.PASSNICKNAME)
             } else {
                 //중복 체크 미통과
                 self.signUpView.nicknameDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
@@ -131,6 +127,6 @@ class SignUpViewController: UIViewController {
         let password = self.signUpView.passwordTextField.text
         let passwordCheck = self.signUpView.passwordCheckTextField.text
         
-        self.signUpView.errorMSG(msg: password == passwordCheck ? "" : Constants.CONFIRMPASSWORD)
+        self.signUpView.errorMSG(msg: password == passwordCheck ? Constants.PASSPASSWORD : Constants.CONFIRMPASSWORD)
     }
 }

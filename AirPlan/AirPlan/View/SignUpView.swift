@@ -158,6 +158,8 @@ class SignUpView: UIView, UIEssentials {
             self.addSubview(idErrorLabel)
             idErrorLabel.text = msg
             
+            idTextField.layer.borderColor = CGColor.init(red: 1, green: 0, blue: 0, alpha: 0.5)
+            
             idErrorLabel.snp.makeConstraints {
                 $0.top.equalTo(idTextField.snp.bottom)
                 $0.trailing.equalTo(idTextField.snp.trailing)
@@ -174,6 +176,8 @@ class SignUpView: UIView, UIEssentials {
             self.addSubview(passwordErrorLabel)
             passwordErrorLabel.text = msg
             
+            passwordTextField.layer.borderColor = CGColor.init(red: 1, green: 0, blue: 0, alpha: 0.5)
+            
             passwordErrorLabel.snp.makeConstraints {
                 $0.top.equalTo(passwordCheckTextField.snp.bottom)
                 $0.trailing.equalTo(passwordCheckTextField.snp.trailing)
@@ -189,6 +193,8 @@ class SignUpView: UIView, UIEssentials {
             self.addSubview(nicknameErrorLabel)
             nicknameErrorLabel.text = msg
             
+            nicknameTextField.layer.borderColor = CGColor.init(red: 1, green: 0, blue: 0, alpha: 0.5)
+            
             nicknameErrorLabel.snp.makeConstraints {
                 $0.top.equalTo(nicknameTextField.snp.bottom)
                 $0.trailing.equalTo(nicknameTextField.snp.trailing)
@@ -201,13 +207,9 @@ class SignUpView: UIView, UIEssentials {
                 $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-30)
             }
             break
-        default:
+        case Constants.PASSEMAIL:
             idErrorLabel.snp.removeConstraints()
-            passwordErrorLabel.snp.removeConstraints()
-            nicknameErrorLabel.snp.removeConstraints()
             self.idErrorLabel.removeFromSuperview()
-            self.passwordErrorLabel.removeFromSuperview()
-            self.nicknameErrorLabel.removeFromSuperview()
             
             passwordTextField.snp.remakeConstraints {
                 $0.height.equalTo(50)
@@ -215,11 +217,19 @@ class SignUpView: UIView, UIEssentials {
                 $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-30)
                 $0.top.equalTo(idTextField.snp.bottom).offset(10)
             }
+            break
+        case Constants.PASSPASSWORD:
+            passwordErrorLabel.snp.removeConstraints()
+            self.passwordErrorLabel.removeFromSuperview()
             
             nicknameLabel.snp.remakeConstraints {
                 $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(30)
                 $0.top.equalTo(passwordCheckTextField.snp.bottom).offset(30)
             }
+            break
+        case Constants.PASSNICKNAME:
+            nicknameErrorLabel.snp.removeConstraints()
+            self.nicknameErrorLabel.removeFromSuperview()
             
             signUpButton.snp.remakeConstraints {
                 $0.height.equalTo(50)
@@ -227,6 +237,9 @@ class SignUpView: UIView, UIEssentials {
                 $0.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(30)
                 $0.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-30)
             }
+            break
+        default:
+            break
         }
     }
 }

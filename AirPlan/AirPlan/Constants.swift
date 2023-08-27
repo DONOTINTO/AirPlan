@@ -15,5 +15,8 @@ class Constants {
     static let EMPTYNICKNAME = "닉네임을 입력해주세요"
     static let DUPLICATENICKNAME = "중복된 닉네임입니다"
     static let CONFIRMPASSWORD = "비밀번호가 일치하지 않습니다"
+    static let PASSEMAIL = "PASSEMAIL"
+    static let PASSPASSWORD = "PASSPASSWORD"
+    static let PASSNICKNAME = "PASSNICKNAME"
 }
 
