@@ -36,6 +36,7 @@ class SignUpViewController: UIViewController {
         signUpView.nicknameDuplicateCheckButton.addTarget(self, action: #selector(nicknameDuplicateCheckButtonClicked(_:)), for: .touchUpInside)
         signUpView.idTextField.addTarget(self, action: #selector(didIDTextFieldChange), for: .editingChanged)
         signUpView.nicknameTextField.addTarget(self, action: #selector(didNicknameTextFieldChange), for: .editingChanged)
+        signUpView.passwordCheckTextField.addTarget(self, action: #selector(didPasswordCheckTextFieldChange), for: .editingDidEnd)
     }
     
     @objc func signUpButtonClicked() {
@@ -120,10 +121,16 @@ class SignUpViewController: UIViewController {
     
     @objc func didIDTextFieldChange() {
         self.signUpView.idDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
-        
     }
     
     @objc func didNicknameTextFieldChange() {
         self.signUpView.nicknameDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
+    }
+    
+    @objc func didPasswordCheckTextFieldChange() {
+        let password = self.signUpView.passwordTextField.text
+        let passwordCheck = self.signUpView.passwordCheckTextField.text
+        
+        self.signUpView.errorMSG(msg: password == passwordCheck ? "" : Constants.CONFIRMPASSWORD)
     }
 }
