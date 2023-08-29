@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     let signUpView = SignUpView()
+    var checkList = [Constants.PASSEMAIL: false, Constants.PASSPASSWORD: false, Constants.PASSNICKNAME: false]
     
     override func loadView() {
         self.view = signUpView
@@ -43,6 +44,30 @@ class SignUpViewController: UIViewController {
         let email = self.signUpView.idTextField.text!
         let password = self.signUpView.passwordTextField.text!
         let nickname = self.signUpView.nicknameTextField.text!
+        var unconfirmedList = [Constants.PASSEMAIL, Constants.PASSPASSWORD, Constants.PASSNICKNAME]
+        
+        var required = checkList.filter { $0.value == true }
+        
+        required.keys.forEach {
+            guard let index = unconfirmedList.firstIndex(of: $0) else { return }
+            unconfirmedList.remove(at: index)
+        }
+        
+        if !unconfirmedList.isEmpty {
+            switch unconfirmedList.first {
+            case Constants.PASSEMAIL :
+                self.signUpView.idTextField.becomeFirstResponder()
+                return
+            case Constants.PASSPASSWORD :
+                self.signUpView.passwordTextField.becomeFirstResponder()
+                return
+            case Constants.PASSNICKNAME :
+                self.signUpView.nicknameTextField.becomeFirstResponder()
+                return
+            default:
+                break
+            }
+        }
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             guard error == nil else {
@@ -78,6 +103,7 @@ class SignUpViewController: UIViewController {
                 //중복 체크 통과
                 self.signUpView.idDuplicateCheckButton.backgroundColor = .lightGray
                 self.signUpView.errorMSG(msg: Constants.PASSEMAIL)
+                self.checkList.updateValue(true, forKey: Constants.PASSEMAIL)
             } else {
                 //중복 체크 미통과
                 self.signUpView.idDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
@@ -107,6 +133,7 @@ class SignUpViewController: UIViewController {
                 //중복 체크 통과
                 self.signUpView.nicknameDuplicateCheckButton.backgroundColor = .lightGray
                 self.signUpView.errorMSG(msg: Constants.PASSNICKNAME)
+                self.checkList.updateValue(true, forKey: Constants.PASSNICKNAME)
             } else {
                 //중복 체크 미통과
                 self.signUpView.nicknameDuplicateCheckButton.backgroundColor = UIColor(red: 0/255, green: 168/255, blue: 168/255, alpha: 1)
@@ -128,5 +155,6 @@ class SignUpViewController: UIViewController {
         let passwordCheck = self.signUpView.passwordCheckTextField.text
         
         self.signUpView.errorMSG(msg: password == passwordCheck ? Constants.PASSPASSWORD : Constants.CONFIRMPASSWORD)
+        self.checkList.updateValue(password == passwordCheck ? true : false, forKey: Constants.PASSPASSWORD)
     }
 }
